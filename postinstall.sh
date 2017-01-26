@@ -14,7 +14,7 @@ cp /var/log/hostd.log  "/vmfs/volumes/$(hostname -s)-local/logs/firstboot-hostd.
 cp /var/log/esxi_install.log "/vmfs/volumes/$(hostname -s)-local/logs/firstboot-esxi_install.log"
 
 # Install StorCLI
-esxcli software vib install -v https://raw.githubusercontent.com/migs/softlayer-esx/master/vmware-esx-storcli-1.21.06.vib
+esxcli software vib install -v https://raw.githubusercontent.com/migs/softlayer-esx/master/binaries/vmware-esx-storcli-1.21.06.vib
 
 # Nuke current RAID settings, and put the proper ones in place:
 /opt/lsi/storcli/storcli /c0/v1 del
