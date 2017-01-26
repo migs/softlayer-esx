@@ -27,3 +27,6 @@ esxcli software vib install -v https://raw.githubusercontent.com/migs/softlayer-
 /opt/lsi/storcli/storcli /c0 add vd type=raid0 name=VSAN drive=8:4 ra wt direct strip=256
 /opt/lsi/storcli/storcli /c0 add vd type=raid0 name=VSAN drive=8:5 ra wt direct strip=256
 /opt/lsi/storcli/storcli /c0 add vd type=raid0 name=VSAN drive=8:6 ra wt direct strip=256
+
+# Force the SSD to be correctly marked as an SSD
+esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d `esxcli storage core path list -p vmhba3:C2:T1:L0 | grep Device: | awk '{print $2}'` -o enable_ssd
