@@ -32,4 +32,4 @@ cp /var/log/esxi_install.log "/vmfs/volumes/$(hostname -s)-local/firstboot-logs/
 
 # Force the SSD to be correctly marked as an SSD
 # This will error if the disks have not been re-initialised from a previous install. The error can be ignored.
-esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d `esxcli storage core path list -p vmhba3:C2:T1:L0 | grep Device: | awk '{print $2}'` -o enable_ssd
+# esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d `esxcli storage core path list -p vmhba3:C2:T1:L0 | grep Device: | awk '{print $2}'` -o enable_ssd
